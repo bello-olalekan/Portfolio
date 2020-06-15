@@ -5,3 +5,12 @@ urlpatterns = [
     path("", views.project_index, name="project_index"),
     path("<int:pk>/", views.project_detail, name="project_detail"),
 ]
+
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path("admin/", admin.site.urls),
+    path("projects/", include("projects.urls")),
+    path("blog/", include("blog.urls")),
+]
